@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AVRILLA Fresh Gel</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #fef5e7 0%, #fff9e6 100%);
+    color: #333;
+    overflow-x: hidden;
+}
+
+/* HEADER */
+header {
+    background: linear-gradient(135deg, #ffb300 0%, #ff8c00 50%, #ff6f00 100%);
+    color: white;
+    text-align: center;
+    padding: 30px 20px;
+    box-shadow: 0 10px 30px rgba(255, 107, 0, 0.3);
+    position: relative;
+}
+
+header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+    animation: slideDown 0.8s ease-out;
+}
+
+header p {
+    font-size: 1.1em;
+    font-weight: 300;
+    opacity: 0.95;
+    animation: fadeIn 1s ease-out 0.3s both;
+}
+
+/* NAV */
+html {
+    scroll-behavior: smooth;
+}
+
+nav {
+    background-color: rgba(255, 160, 0, 0.95);
+    padding: 15px;
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+nav a {
+    color: white;
+    margin: 0 15px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1em;
+    position: relative;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 50%;
+    background-color: white;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+nav a:hover {
+    transform: translateY(-2px);
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+/* HERO */
+.hero {
+    text-align: center;
+    padding: 60px 20px;
+    background: linear-gradient(180deg, rgba(255,179,0,0.1) 0%, transparent 100%);
+}
+
+.hero h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2em;
+    color: #ff6f00;
+    margin-bottom: 20px;
+    animation: slideUp 0.8s ease-out;
+}
+
+.hero img {
+    width: 380px;
+    height: 380px;
+    border-radius: 20px;
+    box-shadow: 0 20px 50px rgba(255, 107, 0, 0.25);
+    object-fit: contain;
+    background: transparent;
+    padding: 0;
+    animation: zoomIn 0.8s ease-out 0.3s both;
+    transition: all 0.3s ease;
+    filter: drop-shadow(0 10px 20px rgba(255, 107, 0, 0.15));
+}
+
+.hero img:hover {
+    transform: scale(1.08);
+    filter: drop-shadow(0 15px 30px rgba(255, 107, 0, 0.25));
+    box-shadow: 0 25px 60px rgba(255, 107, 0, 0.3);
+}
+
+.hero p {
+    font-size: 1.1em;
+    color: #666;
+    margin: 20px 0;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+}
+
+.btn {
+    background: linear-gradient(135deg, #ff8c00, #ff6f00);
+    color: white;
+    padding: 15px 40px;
+    border-radius: 50px;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 20px;
+    font-weight: 600;
+    font-size: 1.05em;
+    cursor: pointer;
+    border: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 25px rgba(255, 107, 0, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255,255,255,0.2);
+    transition: left 0.3s ease;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 35px rgba(255, 107, 0, 0.4);
+}
+
+.btn:hover::before {
+    left: 100%;
+}
+
+/* SECTION */
+.section {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2em;
+    color: #ff8c00;
+    margin-bottom: 40px;
+    position: relative;
+    display: inline-block;
+}
+
+.section h2::after {
+    content: '';
+    position: absolute;
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(90deg, #ffb300, #ff6f00);
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 2px;
+}
+
+.card-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.analysis {
+    max-width: 700px;
+    margin: 30px auto;
+    background: linear-gradient(135deg, rgba(255, 179, 0, 0.05), rgba(255, 140, 0, 0.05));
+    padding: 30px;
+    border-radius: 15px;
+    border-left: 5px solid linear-gradient(135deg, #ffb300, #ff6f00);
+}
+
+.analysis p {
+    margin: 15px 0;
+    font-size: 1em;
+    line-height: 1.8;
+    color: #333;
+}
+
+.analysis strong {
+    color: #ff8c00;
+    font-weight: 600;
+}
+
+.card {
+    background: white;
+    padding: 35px 25px;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 280px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, #ffb300, #ff6f00);
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 45px rgba(255, 107, 0, 0.15);
+}
+
+.card h3 {
+    font-size: 1.5em;
+    color: #ff8c00;
+    margin-bottom: 15px;
+    transition: transform 0.3s ease;
+}
+
+.card:hover h3 {
+    transform: scale(1.1);
+}
+
+.card p {
+    color: #666;
+    font-size: 0.95em;
+    line-height: 1.6;
+}
+
+/* FOOTER */
+footer {
+    background: linear-gradient(135deg, #ff8c00, #ff6f00);
+    color: white;
+    text-align: center;
+    padding: 30px 20px;
+    margin-top: 40px;
+    box-shadow: 0 -5px 20px rgba(0,0,0,0.1);
+}
+
+footer p {
+    font-weight: 500;
+}
+
+/* ANIMATIONS */
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes zoomIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+    header h1 {
+        font-size: 2.2em;
+    }
+    
+    .hero img {
+        width: 320px;
+        height: 320px;
+    }
+}
+
+@media (max-width: 768px) {
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    
+    header {
+        padding: 25px 15px;
+    }
+    
+    header h1 {
+        font-size: 1.8em;
+        margin-bottom: 8px;
+    }
+    
+    header p {
+        font-size: 0.95em;
+    }
+    
+    nav {
+        padding: 12px;
+        overflow-x: auto;
+        overflow-y: hidden;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    nav a {
+        margin: 0 8px;
+        font-size: 0.9em;
+        display: inline-block;
+        white-space: nowrap;
+        flex-shrink: 0;
+    }
+    
+    .hero {
+        padding: 40px 15px;
+    }
+    
+    .hero h2 {
+        font-size: 1.6em;
+        margin-bottom: 15px;
+    }
+    
+    .hero img {
+        width: 280px;
+        height: 280px;
+    }
+    
+    .hero p {
+        font-size: 0.95em;
+        margin: 15px 0;
+    }
+    
+    .btn {
+        padding: 12px 30px;
+        font-size: 0.95em;
+    }
+    
+    .section {
+        padding: 40px 15px;
+    }
+    
+    .section h2 {
+        font-size: 1.4em;
+        margin-bottom: 25px;
+    }
+    
+    .card-container {
+        gap: 20px;
+    }
+    
+    .card {
+        width: 100%;
+        max-width: 280px;
+        padding: 25px 20px;
+    }
+    
+    .card h3 {
+        font-size: 1.3em;
+    }
+    
+    .card p {
+        font-size: 0.9em;
+    }
+    
+    .analysis {
+        padding: 20px;
+        margin: 20px auto;
+    }
+    
+    .analysis p {
+        font-size: 0.95em;
+        margin: 12px 0;
+        line-height: 1.6;
+    }
+    
+    footer {
+        padding: 20px 15px;
+    }
+    
+    footer p {
+        font-size: 0.9em;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.5em;
+    }
+    
+    header p {
+        font-size: 0.9em;
+    }
+    
+    nav a {
+        margin: 6px 0;
+        font-size: 0.85em;
+    }
+    
+    .hero {
+        padding: 30px 12px;
+    }
+    
+    .hero h2 {
+        font-size: 1.3em;
+    }
+    
+    .hero img {
+        width: 240px;
+        height: 240px;
+    }
+    
+    .hero p {
+        font-size: 0.9em;
+    }
+    
+    .btn {
+        padding: 10px 25px;
+        font-size: 0.9em;
+    }
+    
+    .section {
+        padding: 30px 12px;
+    }
+    
+    .section h2 {
+        font-size: 1.2em;
+    }
+    
+    .card {
+        max-width: 100%;
+        min-width: unset;
+    }
+    
+    .analysis {
+        padding: 15px;
+        border-left-width: 3px;
+    }
+    
+    .analysis p {
+        font-size: 0.9em;
+    }
+}
+</style>
+
+</head>
+
+<body>
+
+<header>
+    <h1>AVRILLA Fresh Gel</h1>
+    <p>Pewangi Ruangan Aroma Mangga Segar</p>
+</header>
+
+<nav>
+    <a href="#home">Home</a>
+    <a href="#produk">Produk</a>
+    <a href="#keunggulan">Keunggulan</a>
+    <a href="#kontak">Kontak</a>
+</nav>
+
+<section class="hero" id="home">
+    <h2>Segarkan Ruanganmu 🍋</h2>
+    
+    <img src="IMG_SEGMENT_20260304_211809.png" alt="Produk">
+
+    <p>Pewangi ruangan gel dengan aroma mangga yang segar dan tahan lama.</p>
+
+    <a href="https://wa.me/6289630617842?text=Halo%20saya%20ingin%20memesan%20AVRILLA%20Fresh%20Gel" class="btn" target="_blank">Beli Sekarang</a>
+</section>
+
+<section class="section" id="keunggulan">
+    <h2>Keunggulan Produk</h2>
+
+    <div class="card-container">
+        <div class="card">
+            <h3>🍃 Segar</h3>
+            <p>Aroma mangga alami</p>
+        </div>
+
+        <div class="card">
+            <h3>⏳ Tahan Lama</h3>
+            <p>Wangi bertahan lama</p>
+        </div>
+
+        <div class="card">
+            <h3>💰 Murah</h3>
+            <p>Harga terjangkau</p>
+        </div>
+    </div>
+</section>
+
+<section class="section" id="produk">
+    <h2>Mengapa Pilih AVRILLA? 🏆</h2>
+    <div class="analysis">
+        <p>
+            ✨ Berdasarkan pengujian menyeluruh yang telah kami lakukan, <strong>AVRILLA Fresh Gel</strong> terbukti 
+            memberikan hasil maksimal khususnya di <strong>ruangan tertutup seperti kamar mandi</strong> dan kamar tidur.
+        </p>
+        <p>
+            🌀 Keunggulan utamanya adalah <strong>konsentrasi aroma yang stabil dan tahan lama</strong>, 
+            menciptakan suasana segar selama berjam-jam tanpa perlu diisi ulang terlalu sering.
+        </p>
+        <p>
+            🍋 Aroma mangga alami kami dipilih dengan cermat untuk memberikan sensasi <strong>kesegaran tropis</strong> 
+            yang menenangkan sekaligus energik. Cocok untuk semua jenis ruangan!
+        </p>
+    </div>
+</section>
+
+<section class="section" id="kontak">
+    <h2>Kontak</h2>
+    <p>WhatsApp: 089630617842</p>
+    <p>Instagram: @avrilla</p>
+</section>
+
+<footer>
+    <p>© 2026 AVRILLA Fresh Gel</p>
+</footer>
+
+</body>
+</html>
