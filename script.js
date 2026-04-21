@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Floating WA button
   const floatingWA = document.createElement('a');
-  floatingWA.href = 'https://wa.me/62895604287079?text=Halo%20saya%20ingin%20pesan%20AVRILLA%20Fresh%20Gel';
+  floatingWA.href = 'https://wa.me/62895604286078?text=Halo%20saya%20ingin%20pesan%20AVRILLA%20Fresh%20Gel';
   floatingWA.className = 'floating-wa';
   floatingWA.innerHTML = '💬 WA';
   floatingWA.target = '_blank';
